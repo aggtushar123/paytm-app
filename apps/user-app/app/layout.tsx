@@ -1,17 +1,10 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import { Providers } from "../provider";
 import { AppbarClient } from "../components/AppbarClient";
 
-const geistSans = localFont({
-	src: "./fonts/GeistVF.woff",
-	variable: "--font-geist-sans",
-});
-const geistMono = localFont({
-	src: "./fonts/GeistMonoVF.woff",
-	variable: "--font-geist-mono",
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
 	title: "Wallet",
@@ -20,15 +13,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
 	children,
-}: Readonly<{
+}: {
 	children: React.ReactNode;
-}>) {
+}): JSX.Element {
 	return (
 		<html lang="en">
 			<Providers>
-				<AppbarClient />
-				<body className={`${geistSans.variable} ${geistMono.variable}`}>
-					{children}
+				<body className={inter.className}>
+					<div className="min-w-screen min-h-screen bg-[#ebe6e6]">
+						<AppbarClient />
+						{children}
+					</div>
 				</body>
 			</Providers>
 		</html>
