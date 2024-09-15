@@ -1,27 +1,28 @@
 {
-  "name": "paytm-app",
-  "private": true,
-  "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
-  },
-  "devDependencies": {
-    "@types/bcrypt": "^5.0.2",
-    "prettier": "^3.2.5",
-    "turbo": "^2.1.1",
-    "typescript": "^5.4.5"
-  },
-  "engines": {
-    "node": ">=18"
-  },
-  "packageManager": "npm@10.7.0",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
-  "dependencies": {
-    "bcrypt": "^5.1.1"
-  }
+	"name": "paytm-app",
+	"private": true,
+	"scripts": {
+		"build": "turbo build",
+		"dev": "turbo dev",
+		"lint": "turbo lint",
+		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
+		"db:generate": "cd packages/db && npx prisma generate && cd ../.."
+	},
+	"devDependencies": {
+		"@types/bcrypt": "^5.0.2",
+		"prettier": "^3.2.5",
+		"turbo": "^2.1.1",
+		"typescript": "^5.4.5"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"packageManager": "npm@10.7.0",
+	"workspaces": [
+		"apps/*",
+		"packages/*"
+	],
+	"dependencies": {
+		"bcrypt": "^5.1.1"
+	}
 }
